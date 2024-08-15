@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const reviewSchema = mongoose.Schema({
+const reviewSchema =  mongoose.Schema({
     cafeName: { 
         type: String, 
         required: true,
@@ -25,6 +25,6 @@ const reviewSchema = mongoose.Schema({
     }
 })
 
-const Review = mongoose.model("Review", reviewSchema)
+const Review = mongoose.model.reviews || mongoose.model("reviews", reviewSchema)
 
 export default Review

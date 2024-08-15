@@ -1,13 +1,25 @@
-import Image from "next/image";
+'use client'
+import { connectToDB } from "./utils/connectdb";
+import { useState } from "react";
 
 export default function Home() {
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <input>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-orange-50">
+      <input
+     
+      >
       </input>
-      <button>
-        
+
+
+      <button
+  
+      >
+        Search
       </button>
+
+
     </main>
   );
 }
