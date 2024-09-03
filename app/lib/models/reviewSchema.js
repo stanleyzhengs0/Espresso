@@ -25,6 +25,7 @@ const reviewSchema =  mongoose.Schema({
     }
 })
 
-const Review = mongoose.model.reviews || mongoose.model("reviews", reviewSchema)
+//checks if review model exists already, if not creates a new one
+const Review = mongoose.models.Reviews || mongoose.model("Reviews", reviewSchema)
 
 export default Review
