@@ -1,7 +1,6 @@
 'use client'
 import SearchField from "./components/SearchField";
-import { connectToDB } from "./utils/connectdb";
-import { useState } from "react";
+
 
 export default function Home() {
 

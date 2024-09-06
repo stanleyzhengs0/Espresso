@@ -1,30 +1,31 @@
-'use client'
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 
 const SearchField = () => {
-    const router = useRouter();
-
+    
     const [toSearch, setToSearch] = useState("")
 
-    const handleSearchClick = () =>{
-        router.push(`/${toSearch}`)
-    }
+
+  
 
   return (
     <>
         <input
             onChange={(e)=>{setToSearch(e.target.value)}}
         >
-        
+    
         </input>
 
+        <Link
+            href = {`/${toSearch}`}
+        >
+        
         <button
-            onClick={handleSearchClick}
         >
             Search
         </button>
+        </Link>
     </>
   )
 }
