@@ -13,14 +13,10 @@ async function getCafe(cafeName){
 export default async function viewCafe ({params}){
     const cafe = decodeURIComponent(params.cafe)
 
-    console.log(cafe, "CAFE PAFE")
-
-    const dbCafe = await getCafe(params)
-
-    console.log(dbCafe )
-
+    const dbCafe = await getCafe(cafe)
     
-    console.log(cafe, "PARAMS Stripped")
     return <>
+    Cafe
+    {dbCafe.cafeName}
     </>
 }
