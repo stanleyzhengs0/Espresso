@@ -15,7 +15,7 @@ export default async function viewCafe ({params}){
 
     console.log(cafe, "CAFE PAFE")
 
-    const dbCafe = await getCafe(cafe)
+    const dbCafe = await getCafe(params)
 
     console.log(dbCafe )
 
