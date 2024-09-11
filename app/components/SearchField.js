@@ -18,7 +18,7 @@ const SearchField = () => {
         </input>
 
         <Link
-            href = {`/${toSearch}`}
+            href = {`/reviews/${toSearch}`}
         >
         
         <button
