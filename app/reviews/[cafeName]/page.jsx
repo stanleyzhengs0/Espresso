@@ -1,8 +1,11 @@
+import ReviewBox from "@/app/components/ReviewBox"
+
 async function getCafe(cafeNameParam){
+    console.log(cafeNameParam, "API CALL")
     let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameParam}`,{
-        cache: "no-store",
-        method: "GET"
-    }).catch((error) => console.log("Error Fetching API"))
+        cache: 'no-store',
+        method: 'GET'
+    })
 
     response = await response.json()
 
@@ -11,17 +14,47 @@ async function getCafe(cafeNameParam){
 }
 
 export default async function viewCafe ({params}){
-    const cafe = decodeURIComponent(params.cafe)
+    const cafe = decodeURIComponent(params.cafeName).replaceAll(" ","")
+    console.log(cafe, "strip")
 
-    console.log(params, "page componenet")
-
-    const dbCafe = await getCafe(cafe)
+    const dbCafe = await getCafe(params.cafeName)
+    const reviews = dbCafe.data
     
     return(
         <>
-            HELLOW
-            {params.cafeName}
+        <div className="flex-col bg-stone-500"> 
+            <div className="h-80"> 
+                <img
+                    src = {`./lib/images/${cafe}.jpg`}
+                > 
+                </img>
+            IMG
+            </div>
             
+            <div className="h-52"> 
+            AI DESC
+            </div>
+    
+            <div> 
+
+                <div className="flex-col gap-5"> 
+                    {reviews.map((items)=>(
+                    
+                    <ReviewBox reviewerName={items.reviewerName} description={items.description}/>
+                ))}
+                </div>
+
+            </div>
+           
+            
+        </div>
+    
+       
+           
+
+            
+            
+
         </>
     )
    

@@ -11,21 +11,25 @@ const SearchField = () => {
 
   return (
     <>
-        <input
-            onChange={(e)=>{setToSearch(e.target.value)}}
-        >
-    
-        </input>
-
-        <Link
-            href = {`/reviews/${toSearch}`}
-        >
+        <div className='flex'> 
+            <input
+            className='rounded-full'
+                onChange={(e)=>{setToSearch(e.target.value)}}
+            >
         
-        <button
-        >
-            Search
-        </button>
-        </Link>
+            </input>
+
+            <Link
+                href = {`/reviews/${toSearch}`}
+            >
+            
+            <button className='bg-stone-500 rounded-full pr-3 pl-3'>
+                Search
+            </button>
+            </Link>
+
+        </div>
+      
     </>
   )
 }
