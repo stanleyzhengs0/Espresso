@@ -20,25 +20,27 @@ const ReviewList = (props) => {
 
 
     const fetchMoreReviews = async () =>{
-        const cafe = await getReviews(props.cafeName, page)
-        console.log(cafe, "API CALL")
+        const collection = await getReviews(props.cafeName, page)
+        const newReviews = collection.data
+        console.log(newReviews)
 
-        // newReviews = cafe.data
+        // setReviews(newReviews)
+     
 
-        // setReviews((prevReviews) => [...prevReviews, ...newReviews])
+        setReviews((prevReviews) => [...prevReviews, ...newReviews])
     }
   return (
     <div>
         Review List output: 
         {props.cafeName}
 
-        {/* {reviews.map((review, index) =>(
+        {reviews.map((review, index) =>(
             <ReviewBox
                 key = {index}
                 reviewerName = {review.reviewerName}
                 description = {review.description}
             />
-        ))} */}
+        ))}
       
     </div>
   )
