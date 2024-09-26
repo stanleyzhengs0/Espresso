@@ -7,10 +7,9 @@ connectToDB()
 export async function GET(req, {params}){
     const cafe = params.cafeName
 
-    console.log(cafe, "PARAN")
-  
+     
     try{
-        const reviews = await Review.find({cafeName: cafe})
+        const reviews = await Review.find({"cafeName": {"$regex": cafe, "$options": "i"}})
         console.log(typeof(reviews))
         return NextResponse.json({success : true, data: reviews})
     }catch(error){

@@ -1,24 +1,37 @@
+
 import ReviewBox from "@/app/components/ReviewBox"
+import ReviewList from "@/app/components/ReviewList"
 
-async function getCafe(cafeNameParam){
-    console.log(cafeNameParam, "API CALL")
-    let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameParam}`,{
-        cache: 'no-store',
-        method: 'GET'
-    })
+// async function getCafe(cafeNameParam){
+//     console.log(cafeNameParam, "API CALL")
+//     let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameParam}`,{
+//         cache: 'no-store',
+//         method: 'GET'
+//     })
+//     response = await response.json()
+//     return response
+// }
 
-    response = await response.json()
+// async function getSummary(cafeNameParam){
+//     let response = await fetch(`http://localhost:5000/summarize_reviews?cafe=${cafeNameParam}`)
+//     response = await response.json()
+//     return response
+// }
 
-
-    return response
-}
 
 export default async function viewCafe ({params}){
     const cafe = decodeURIComponent(params.cafeName).replaceAll(" ","")
-    console.log(cafe, "strip")
+    console.log(cafe, "Dynamic URL")
 
-    const dbCafe = await getCafe(params.cafeName)
-    const reviews = dbCafe.data
+    // const dbCafe = await getCafe(params.cafeName)
+    // const reviews = dbCafe.data
+    // const reviewSummary = await getSummary(params.cafeName)
+
+
+
+
+
+
     
     return(
         <>
@@ -32,17 +45,20 @@ export default async function viewCafe ({params}){
             </div>
             
             <div className="h-52"> 
-            AI DESC
+            Generated Summary
+            {/* {JSON.stringify(reviewSummary.summary).replaceAll('"', "")} */}
             </div>
     
             <div> 
+                Review Page: 
 
-                <div className="flex-col gap-5"> 
+                {/* <div className="flex-col gap-5"> 
                     {reviews.map((items)=>(
                     
                     <ReviewBox reviewerName={items.reviewerName} description={items.description}/>
                 ))}
-                </div>
+                </div> */}
+                <ReviewList cafeName = {params.cafeName}/>
 
             </div>
            
