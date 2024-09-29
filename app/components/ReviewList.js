@@ -3,8 +3,18 @@ import React, { useState, useEffect } from 'react'
 import ReviewBox from './ReviewBox'
 
 async function getReviews(cafeNameURL, page){
-    let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameURL}?page=${page}`)
-    return response.json()
+    try{
+        let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameURL}?page=${page}`,{
+                    cache: 'no-store',
+                    method: 'GET'
+            })
+        
+            response = await response.json()
+            return response
+    }catch(error){
+        return console.log("failed to fetch review API")
+    }
+    
 }
 
 const ReviewList = (props) => {
@@ -16,19 +26,37 @@ const ReviewList = (props) => {
 
     useEffect(() =>{
         fetchMoreReviews()
-    },[])
+    },[page])
 
 
     const fetchMoreReviews = async () =>{
         const collection = await getReviews(props.cafeName, page)
         const newReviews = collection.data
-        console.log(newReviews)
-
-        // setReviews(newReviews)
-     
-
         setReviews((prevReviews) => [...prevReviews, ...newReviews])
+        isLoading(false)
     }
+
+    useEffect(()=>{
+
+        const handleScroll = () => {
+            if(
+                window.innerHeight + window.scrollY > document.body.offsetHeight - 100 &&
+                !loading
+            ){
+                setPage((prevPage) => prevPage + 1)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        // Clean up the event listener when the component unmounts
+        return () => window.removeEventListener('scroll', handleScroll)
+
+        
+    },[loading])
+
+
+
   return (
     <div>
         Review List output: 
