@@ -1,6 +1,8 @@
 
 import ReviewBox from "@/app/components/ReviewBox"
 import ReviewList from "@/app/components/ReviewList"
+import ReviewListWithLoader from "@/app/components/ReviewListWithLoader"
+
 
 // async function getCafe(cafeNameParam){
 //     console.log(cafeNameParam, "API CALL")
@@ -32,13 +34,14 @@ export default async function viewCafe ({params}){
 
 
 
+
     
     return(
         <>
         <div className="flex-col bg-stone-500"> 
             <div className="h-80"> 
                 <img
-                    src = {`./lib/images/${cafe}.jpg`}
+                    src = {`@/app/lib/images/${cafe}.jpg`}
                 > 
                 </img>
             IMG
@@ -58,7 +61,11 @@ export default async function viewCafe ({params}){
                     <ReviewBox reviewerName={items.reviewerName} description={items.description}/>
                 ))}
                 </div> */}
-                <ReviewList cafeName = {params.cafeName}/>
+
+            
+
+                
+               <ReviewListWithLoader cafeName = {params.cafeName}/>
 
             </div>
            

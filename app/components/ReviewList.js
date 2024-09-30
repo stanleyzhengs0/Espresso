@@ -17,7 +17,7 @@ async function getReviews(cafeNameURL, page){
     
 }
 
-const ReviewList = (props) => {
+const ReviewList = ({cafeName, handleDataLoader}) => {
 
     const [reviews, setReviews] = useState([])
     const [page, setPage] = useState(1)
@@ -30,10 +30,21 @@ const ReviewList = (props) => {
 
 
     const fetchMoreReviews = async () =>{
-        const collection = await getReviews(props.cafeName, page)
+        const collection = await getReviews(cafeName, page)
         const newReviews = collection.data
         setReviews((prevReviews) => [...prevReviews, ...newReviews])
-        isLoading(false)
+
+        
+        if(page === 1){
+            handleDataLoader()
+        }else{
+            isLoading(false)
+        
+        }
+      
+     
+        
+        
     }
 
     useEffect(()=>{
@@ -59,9 +70,10 @@ const ReviewList = (props) => {
 
   return (
     <div>
-        Review List output: 
-        {props.cafeName}
+        {/* Review List output: 
+        {props.cafeName} */}
 
+   
         {reviews.map((review, index) =>(
             <ReviewBox
                 key = {index}
@@ -69,6 +81,9 @@ const ReviewList = (props) => {
                 description = {review.description}
             />
         ))}
+     
+
+      
       
     </div>
   )

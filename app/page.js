@@ -1,16 +1,25 @@
 'use client'
 import ReviewBox from "./components/ReviewBox";
-import SearchField from "./components/SearchField";
-
+import FooterNavigation from './components/FooterNavigation'
+import { useState } from "react";
+import { displaySearchContext } from "./components/Context";
 
 export default function Home() {
-
+  const [displaySearch, setDisplaySearch] = useState(false)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-orange-50">
-      <SearchField/>
-      <ReviewBox/>
+<div class="relative grid h-screen grid-rows-[1fr_auto] bg-cover bg-center">
+  <div class="p-4">
+    {displaySearch && <div>hello</div>}
 
-    </main>
+  </div>
+  <nav class="bg-white bg-opacity-80 p-4 shadow-lg mb-4">
+    <displaySearchContext.Provider value = {{displaySearch, setDisplaySearch}}>
+        <FooterNavigation/>
+    </displaySearchContext.Provider>
+    
+    
+  </nav>
+</div>
   );
 }
