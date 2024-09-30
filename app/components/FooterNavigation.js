@@ -1,18 +1,21 @@
 'use client'
-import SearchField from "@/app/components/SearchField"
+import SearchButton from "@/app/components/SearchButton"
+import HomeButton from "./HomeButton"
+import ProfileButton from "./ProfileButton"
 
 const FooterNavigation = () => {
   return (
-    <div className='flex w-full justify-center p-8 rounded-3xl bg-stone-400 gap-10
+    <div className='flex w-full justify-center p-8 rounded-3xl bg-stone-400 gap-20
     '>
+  
         <div>
-            home
+            <HomeButton/>
         </div>
         <div>
-            <SearchField/>
+            <SearchButton/>
         </div>
         <div>
-            profile
+            <ProfileButton/>
         </div>
     </div>
   )

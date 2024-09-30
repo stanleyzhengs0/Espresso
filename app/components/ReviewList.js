@@ -22,33 +22,24 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
     const [reviews, setReviews] = useState([])
     const [page, setPage] = useState(1)
     const [loading, isLoading] = useState(false)
-    const [hasMore, setHasMore] = useState(true)
 
     useEffect(() =>{
         fetchMoreReviews()
     },[page])
-
 
     const fetchMoreReviews = async () =>{
         const collection = await getReviews(cafeName, page)
         const newReviews = collection.data
         setReviews((prevReviews) => [...prevReviews, ...newReviews])
 
-        
         if(page === 1){
             handleDataLoader()
         }else{
             isLoading(false)
-        
         }
-      
-     
-        
-        
     }
 
     useEffect(()=>{
-
         const handleScroll = () => {
             if(
                 window.innerHeight + window.scrollY > document.body.offsetHeight - 100 &&
@@ -57,23 +48,16 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
                 setPage((prevPage) => prevPage + 1)
             }
         }
-
         window.addEventListener('scroll', handleScroll)
-
         // Clean up the event listener when the component unmounts
         return () => window.removeEventListener('scroll', handleScroll)
-
-        
     },[loading])
 
 
 
   return (
     <div>
-        {/* Review List output: 
-        {props.cafeName} */}
 
-   
         {reviews.map((review, index) =>(
             <ReviewBox
                 key = {index}
@@ -81,10 +65,7 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
                 description = {review.description}
             />
         ))}
-     
 
-      
-      
     </div>
   )
 }
