@@ -14,11 +14,11 @@ import ReviewListWithLoader from "@/app/components/ReviewListWithLoader"
 //     return response
 // }
 
-// async function getSummary(cafeNameParam){
-//     let response = await fetch(`http://localhost:5000/summarize_reviews?cafe=${cafeNameParam}`)
-//     response = await response.json()
-//     return response
-// }
+async function getSummary(cafeNameParam){
+    let response = await fetch(`http://localhost:5000/summarize_reviews?cafe=${cafeNameParam}`)
+    response = await response.json()
+    return response
+}
 
 
 export default async function viewCafe ({params}){
@@ -27,7 +27,7 @@ export default async function viewCafe ({params}){
 
     // const dbCafe = await getCafe(params.cafeName)
     // const reviews = dbCafe.data
-    // const reviewSummary = await getSummary(params.cafeName)
+    const reviewSummary = await getSummary(params.cafeName)
 
 
 
@@ -49,7 +49,7 @@ export default async function viewCafe ({params}){
             
             <div className="h-52"> 
             Generated Summary
-            {/* {JSON.stringify(reviewSummary.summary).replaceAll('"', "")} */}
+            {JSON.stringify(reviewSummary.summary).replaceAll('"', "")}
             </div>
     
             <div> 
