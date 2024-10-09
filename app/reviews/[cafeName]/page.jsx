@@ -1,18 +1,5 @@
-
-import ReviewBox from "@/app/components/ReviewBox"
-import ReviewList from "@/app/components/ReviewList"
 import ReviewListWithLoader from "@/app/components/ReviewListWithLoader"
 
-
-// async function getCafe(cafeNameParam){
-//     console.log(cafeNameParam, "API CALL")
-//     let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameParam}`,{
-//         cache: 'no-store',
-//         method: 'GET'
-//     })
-//     response = await response.json()
-//     return response
-// }
 
 async function getSummary(cafeNameParam){
     let response = await fetch(`http://localhost:5000/summarize_reviews?cafe=${cafeNameParam}`)
@@ -25,30 +12,22 @@ export default async function viewCafe ({params}){
     const cafe = decodeURIComponent(params.cafeName).replaceAll(" ","")
     console.log(cafe, "Dynamic URL")
 
-    // const dbCafe = await getCafe(params.cafeName)
-    // const reviews = dbCafe.data
     const reviewSummary = await getSummary(params.cafeName)
 
 
-
-
-
-
-
-    
     return(
         <>
-        <div className="flex-col bg-stone-500"> 
+        <div className="flex-col bg-stone-500 "> 
             <div className="h-80"> 
                 <img
-                    src = {`@/app/lib/images/${cafe}.jpg`}
+                    src = {`/images/${cafe}.jpg`}
+                    className = 'w-full h-full object-cover'
                 > 
                 </img>
-            IMG
             </div>
             
             <div className="h-52"> 
-            Generated Summary
+            
             {JSON.stringify(reviewSummary.summary).replaceAll('"', "")}
             </div>
     
