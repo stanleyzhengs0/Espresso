@@ -4,6 +4,8 @@ import { useState } from "react";
 import { displaySearchContext } from "./components/Context";
 import { useRouter } from 'next/navigation';
 
+import { LoadScript, Autocomplete } from '@react-google-maps/api';
+
 export default function Home() {
   const [displaySearch, setDisplaySearch] = useState(false)
   const [toSearch, setToSearch] = useState("")
