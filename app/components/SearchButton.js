@@ -6,7 +6,7 @@ import { displaySearchContext } from './Context';
 
 const SearchButton = () => {
     
-    const {displaySearch, setDisplaySearch} = useContext(displaySearchContext)
+    const {displaySearch, setDisplaySearch, setPredictions} = useContext(displaySearchContext)
 
   return (
     <>
@@ -15,7 +15,10 @@ const SearchButton = () => {
                 (                    
                     <button 
                         className='bg-stone-500 rounded-full p-4'
-                        onClick={() => setDisplaySearch(false)}
+                        onClick={() => {
+                            setDisplaySearch(false)
+                            setPredictions([])
+                        }}
                     >
                             <IoIosClose size ={30}/>
                     </button>
@@ -26,7 +29,9 @@ const SearchButton = () => {
                         onClick={() => setDisplaySearch(true)}
                     >
                             <CiSearch size ={30}/>
+                            
                     </button>
+                    
                 )
             }
         </div>
