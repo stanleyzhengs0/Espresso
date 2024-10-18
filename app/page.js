@@ -2,19 +2,22 @@
 import FooterNavigation from './components/FooterNavigation'
 import { useEffect, useRef, useState } from "react";
 import { displaySearchContext } from "./components/Context";
+import { useRouter } from 'next/navigation';
 
   
 
 
 
 export default function Home() {
+
+  const router = useRouter()
   const [displaySearch, setDisplaySearch] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   const [predictions, setPredictions] = useState([])
 
 
   const fetchPlaces = async (inputVal) => {
-    let response = await fetch(`http://localhost:3000/api/places?input=${inputVal}`,{
+    let response = await fetch(`http://localhost:3000/api/autocomplete?input=${inputVal}`,{
       method: "GET"
     })
     response = await response.json()
@@ -42,42 +45,27 @@ export default function Home() {
 
     </div>
     <nav className="bg-white bg-opacity-80 p-3 shadow-lg mb-4">
+      
       {displaySearch && 
-
         <>
-        {predictions.length > 0 && 
-        
-        <div className='w-full border-gray-200 rounded-lg  '>
           {predictions.map((item, index) =>(
             <button
-              className='w-full px-4 py-2 border-b border-gray-200 rounded-t-lg hover:bg-slate-300 transition duration-200'
-              // onClick={handleAutocompleteClick}
-            
-            
+              className='w-full px-4 py-2 border  hover:bg-gray-200 transition duration-200'
+              onClick={() =>{router.push(`./reviews/${item.place_id}`)}}
             >
               {item?.description}
-              
-              
             </button>
           ))}
-        </div>
-        
-        
-        
-        }
-         
+ 
        
-         {predictions?.description}
-         <input
-           className="w-full p-3 border border-gray-300 rounded-full"
-           placeholder="Search by Cafe Name..."
-           onChange={handleChange}
-           // onKeyDown={handleEnterSearch}
-         />
+       
+          <input
+            className="w-full p-3 border border-gray-300 rounded-full"
+            placeholder="Search by Cafe Name..."
+            onChange={(handleChange)}
+            // onKeyDown={handleEnterSearch}
+          />
         </>
-    
-       
-      
       }
 
 
