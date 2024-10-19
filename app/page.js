@@ -51,7 +51,7 @@ export default function Home() {
           {predictions.map((item, index) =>(
             <button
               className='w-full px-4 py-2 border  hover:bg-gray-200 transition duration-200'
-              onClick={() =>{router.push(`./reviews/${item.place_id}`)}}
+              onClick={() =>{router.push(`./reviews/${item?.structured_formatting.main_text}`)}}
             >
               {item?.description}
             </button>

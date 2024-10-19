@@ -9,8 +9,8 @@ import { useState, useEffect } from "react"
 //     return response
 // }
 
-async function getReviews(placeID){
-    let response = await fetch(`http://localhost:3000/api/reviews/${placeID}`,{
+async function getReviews(cafeNameParam){
+    let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameParam}?page=${1}`,{
         method: "GET"
     })
     response = await response.json()
@@ -19,8 +19,8 @@ async function getReviews(placeID){
 
 
 export default async function viewCafe ({params}){
-    const placeID = decodeURIComponent(params.placeID).replaceAll(" ","")
-    console.log(placeID, "Dynamic URL")
+    const cafe = decodeURIComponent(params.cafeName).replaceAll(" ","")
+    console.log(cafe, "Dynamic URL")
 
     const [reviews, setReviews] = useState([])
     const [cafeImage, setCafeImage] = useState([])
@@ -28,11 +28,11 @@ export default async function viewCafe ({params}){
   
     useEffect(() =>{
         const fetchData = async () => {
-            const pageContent = await getReviews(placeID)
-            console.log(pageContent.data.result.reviews, "DATA")
+            const pageContent = await getReviews(params.className)
+            setReviews(pageContent)
         } 
         fetchData()
-    },[placeID])
+    },[])
 
     
 
@@ -52,12 +52,12 @@ export default async function viewCafe ({params}){
             <div> 
                 Review Page: 
 
-                {/* <div className="flex-col gap-5"> 
+                <div className="flex-col gap-5"> 
                     {reviews.map((items)=>(
                     
                     <ReviewBox reviewerName={items.reviewerName} description={items.description}/>
                 ))}
-                </div> */}
+                </div>
 
             
 
