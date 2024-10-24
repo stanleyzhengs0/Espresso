@@ -1,6 +1,7 @@
 'use client'
 import ReviewListWithLoader from "@/app/components/ReviewListWithLoader"
 import { useState, useEffect } from "react"
+import ReviewBox from "@/app/components/ReviewBox"
 
 
 // async function getSummary(cafeNameParam){
@@ -10,29 +11,39 @@ import { useState, useEffect } from "react"
 // }
 
 async function getReviews(cafeNameParam){
-    let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameParam}?page=${1}`,{
-        method: "GET"
-    })
-    response = await response.json()
-    return response
+    try{
+        let response = await fetch(`http://localhost:3000/api/reviews/${cafeNameParam}?page=${1}`,{
+            method: "GET"
+        })
+        response = await response.json()
+        return response
+    }catch(error){
+        console.log("failed to fetch reviews")
+        
+    }
 }
 
 
-export default async function viewCafe ({params}){
-    const cafe = decodeURIComponent(params.cafeName).replaceAll(" ","")
-    console.log(cafe, "Dynamic URL")
+export default function viewCafe ({params}){
+    const cafe = params.cafeName
+
+    console.log(cafe)
+
+    const cleanUrlString = decodeURIComponent(cafe).normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+    console.log(cleanUrlString, "Dynamic URL")
 
     const [reviews, setReviews] = useState([])
-    const [cafeImage, setCafeImage] = useState([])
+    
 
-  
-    useEffect(() =>{
-        const fetchData = async () => {
-            const pageContent = await getReviews(params.className)
-            setReviews(pageContent)
-        } 
-        fetchData()
-    },[])
+   useEffect(() => {
+    const fetchReview = async () =>{
+        const pageContent = await getReviews(cleanUrlString)
+        setReviews(pageContent.data)
+    }
+    fetchReview()
+
+    
+   },[])
 
     
 
@@ -52,12 +63,7 @@ export default async function viewCafe ({params}){
             <div> 
                 Review Page: 
 
-                <div className="flex-col gap-5"> 
-                    {reviews.map((items)=>(
-                    
-                    <ReviewBox reviewerName={items.reviewerName} description={items.description}/>
-                ))}
-                </div>
+              
 
             
 

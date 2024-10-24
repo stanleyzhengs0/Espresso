@@ -4,10 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { displaySearchContext } from "./components/Context";
 import { useRouter } from 'next/navigation';
 
-  
-
-
-
 export default function Home() {
 
   const router = useRouter()
@@ -30,13 +26,6 @@ export default function Home() {
     fetchPlaces(event.target.value)
   }
 
-  // const handleAutocompleteClick = () =>{
-  //   searchInput()
-  // }
-
-
-
-  
 
   return (
   <div className="relative grid h-screen grid-rows-[1fr_auto] bg-cover bg-center">
