@@ -38,6 +38,7 @@ export default function viewCafe ({params}){
    useEffect(() => {
     const fetchReview = async () =>{
         const pageContent = await getReviews(cleanUrlString)
+        console.log(pageContent)
         setReviews(pageContent.data)
     }
     fetchReview()
@@ -49,39 +50,26 @@ export default function viewCafe ({params}){
 
 
     return(
-        <>
-        <div className="flex-col bg-stone-500 "> 
-            <div className="h-80"> 
-               
-            </div>
-            
-            <div className="h-52"> 
-            
-           
-            </div>
-    
-            <div> 
-                Review Page: 
-
-              
-
-            
-
-                
-              
-
-            </div>
-           
-            
+     
+        <div className="flex flex-col h-screen bg-oliveBlack">
+        {/* CAFE INFO SECTION */}
+        <div className="flex gap-4 h-2/5 border-8" alt="cafe-info-section">
+          {/* Left Side */}
+          <div className="flex flex-col w-1/2 bg-gray-100 p-2">
+            <div className="flex-1 border p-2">name</div>
+            <div className="flex-1 border p-2">stars</div>
+          </div>
+          {/* Right Side */}
+          <div className="w-1/2 bg-gray-200 p-2">image section</div>
         </div>
-    
-       
-           
-
-            
-            
-
-        </>
+      
+        {/* REVIEW SECTION */}
+        <div className="h-3/5 p-2 border-t-8 border-black" alt="cafe-review-section">
+          review-section
+        </div>
+      </div>
+      
+      
     )
    
 }
