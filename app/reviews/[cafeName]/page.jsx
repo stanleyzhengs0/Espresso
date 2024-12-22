@@ -51,22 +51,25 @@ export default function viewCafe ({params}){
 
     return(
      
-        <div className="flex flex-col h-screen bg-oliveBlack">
+        <div className="flex flex-col h-screen mt-6 font-sans">
         {/* CAFE INFO SECTION */}
-        <div className="flex gap-4 h-2/5 border-8" alt="cafe-info-section">
-          {/* Left Side */}
-          <div className="flex flex-col w-1/2 bg-gray-100 p-2">
-            <div className="flex-1 border p-2">name</div>
-            <div className="flex-1 border p-2">stars</div>
+          <div className="flex gap-4 h-2/5 font-sans p-4" alt="cafe-info-section">
+            {/* Left Side */}
+            <div className="flex flex-col w-1/2 p-2 drop-shadow">
+              <h1 className="text-5xl font-bold mb-4 ">{cleanUrlString}</h1>
+              <p className=""></p>
+              <div className="flex-1 border p-2">Description</div>
+              <div className="flex-1 border p-2">stars</div>
+            </div>
+            {/* Right Side */}
+            <div className="w-1/2 border-2 rounded-3xl p-2">image section</div>
           </div>
-          {/* Right Side */}
-          <div className="w-1/2 bg-gray-200 p-2">image section</div>
-        </div>
       
-        {/* REVIEW SECTION */}
-        <div className="h-3/5 p-2 border-t-8 border-black" alt="cafe-review-section">
-          review-section
-        </div>
+          {/* REVIEW SECTION */}
+          <div className="bg-olive h-3/5 p-2" alt="cafe-review-section">
+            review-section
+          
+          </div>
       </div>
       
       
