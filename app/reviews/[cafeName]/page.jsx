@@ -67,7 +67,7 @@ export default function viewCafe ({params}){
       
           {/* REVIEW SECTION */}
           <div className="bg-olive h-3/5 p-2" alt="cafe-review-section">
-            review-section
+            <ReviewBox/>
           
           </div>
       </div>
