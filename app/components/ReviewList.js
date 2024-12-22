@@ -22,6 +22,9 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
     const [reviews, setReviews] = useState([])
     const [page, setPage] = useState(1)
     const [loading, isLoading] = useState(false)
+    const [initialFetchDone, setInitialFetchDone] = useState(false)
+
+    console.log(reviews)
 
     useEffect(() =>{
         fetchMoreReviews()
@@ -38,33 +41,47 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
             isLoading(false)
         }
     }
+    const handleLoad = () =>{
+        setPage((prevPage) => prevPage + 1)
+    }
 
-    useEffect(()=>{
-        const handleScroll = () => {
-            if(
-                window.innerHeight + window.scrollY > document.body.offsetHeight - 100 &&
-                !loading
-            ){
-                setPage((prevPage) => prevPage + 1)
-            }
-        }
-        window.addEventListener('scroll', handleScroll)
-        // Clean up the event listener when the component unmounts
-        return () => window.removeEventListener('scroll', handleScroll)
-    },[loading])
+    // Logic for infinite scroll
+    // useEffect(()=>{
+    //     const handleScroll = () => {
+    //         if(
+    //             window.innerHeight + window.scrollY > document.body.offsetHeight - 100 &&
+    //             !loading
+    //         ){
+    //             setPage((prevPage) => prevPage + 1)
+    //         }
+    //     }
+    //     window.addEventListener('scroll', handleScroll)
+    //     // Clean up the event listener when the component unmounts
+    //     return () => window.removeEventListener('scroll', handleScroll)
+    // },[loading])
 
 
 
   return (
-    <div>
+    <div className='flex flex-col'>
+        <div className='grid'>
+            {reviews.map((review, index) =>(
+                <ReviewBox
+                    key = {index}
+                    reviewerName = {review.reviewerName}
+                    rating = {review.rating}
+                    description = {review.description}
+                />
+            ))}
 
-        {reviews.map((review, index) =>(
-            <ReviewBox
-                key = {index}
-                reviewerName = {review.reviewerName}
-                description = {review.description}
-            />
-        ))}
+        </div>
+        <button
+            onClick={handleLoad}
+            className='bg-orange-700 rounded-lg w-'
+        >
+            Load more
+        </button>
+        
 
     </div>
   )

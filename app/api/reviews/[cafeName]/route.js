@@ -19,7 +19,7 @@ import { NextResponse } from "next/server";
 connectToDB()
 export async function GET(req,{params}){
     const cafe = params.cafeName
-    const reviewsPerPage = 10
+    const reviewsPerPage = 5
 
     console.log(cafe, "INSIDE CALL")
 

@@ -1,7 +1,8 @@
 'use client'
-import ReviewListWithLoader from "@/app/components/ReviewListWithLoader"
+
 import { useState, useEffect } from "react"
-import ReviewBox from "@/app/components/ReviewBox"
+import ReviewList from "@/app/components/ReviewList"
+import StarRating from "@/app/components/StarRating"
 
 
 // async function getSummary(cafeNameParam){
@@ -30,21 +31,21 @@ export default function viewCafe ({params}){
     console.log(cafe)
 
     const cleanUrlString = decodeURIComponent(cafe).normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
-    console.log(cleanUrlString, "Dynamic URL")
+   
 
-    const [reviews, setReviews] = useState([])
+  //   const [reviews, setReviews] = useState([])
     
 
-   useEffect(() => {
-    const fetchReview = async () =>{
-        const pageContent = await getReviews(cleanUrlString)
-        console.log(pageContent)
-        setReviews(pageContent.data)
-    }
-    fetchReview()
+  //  useEffect(() => {
+  //   const fetchReview = async () =>{
+  //       const pageContent = await getReviews(cleanUrlString)
+  //       console.log(pageContent)
+  //       setReviews(pageContent.data)
+  //   }
+  //   fetchReview()
 
     
-   },[])
+  //  },[])
 
     
 
@@ -67,8 +68,7 @@ export default function viewCafe ({params}){
       
           {/* REVIEW SECTION */}
           <div className="bg-olive h-3/5 p-2" alt="cafe-review-section">
-            <ReviewBox/>
-          
+            <ReviewList cafeName={cleanUrlString}/>
           </div>
       </div>
       

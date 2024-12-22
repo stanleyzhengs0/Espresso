@@ -1,5 +1,6 @@
 
 import React from 'react'
+import StarRating from './StarRating'
 
 const ReviewBox = (props) => {
   return (
@@ -8,7 +9,8 @@ const ReviewBox = (props) => {
       <h2 className="text-lg font-bold text-gray-800 hover:text-blue-600 transition">
         {props.reviewerName}
       </h2>
-      <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+      <StarRating rating={props.rating}/>
+      <p className="text-sm text-oliveBlack mt-2 line-clamp-3">
         {props.description}
       </p>
       <div className="mt-4 flex items-center justify-between text-gray-500 text-xs">
