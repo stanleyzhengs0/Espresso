@@ -28,7 +28,7 @@ export default function Home() {
 
 
   return (
-  <div className="relative grid h-screen grid-rows-[1fr_auto] bg-cover bg-center">
+  <div className="relative grid h-screen grid-rows-[1fr_auto] bg-[url('https://www.clipartmax.com/middle/m2H7m2H7G6H7H7m2_reviews-customer-satisfaction-icon-transparent/#google_vignette')] bg-center">
     <div className="p-4">
     insert background
 

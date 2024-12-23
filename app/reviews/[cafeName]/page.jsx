@@ -30,7 +30,7 @@ export default async function viewCafe ({params}){
     const cleanUrlString = decodeURIComponent(cafe).normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
     const summary = await getSummary(cleanUrlString)
     const avgRating = await getAvgRating(cleanUrlString)
-  
+    const thumbnail = `${cafe}.jpg`
 
     
 
@@ -58,7 +58,12 @@ export default async function viewCafe ({params}){
               </div>
             </div>
             {/* Right Side */}
-            <div className="w-1/2 border-2 rounded-3xl p-2">image section</div>
+            <div className="w-1/2 border-2 rounded-3xl p-2">
+              <img
+                src = "../ThreeJewelsCafe.jpg"
+                className="rounded-3xlg"
+              />
+            </div>
           </div>
       
           {/* REVIEW SECTION */}
