@@ -27,9 +27,11 @@ export async function GET(req,{params}){
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get('page')); // Default to page 1 if page is not provided
 
+   
     
     
     try{
+        //Consider finding cafe by ID, what if multiple location
         const reviews = await Review
         .find({
             "cafeName": cafe,
@@ -37,8 +39,18 @@ export async function GET(req,{params}){
         })
         .skip((page - 1) * reviewsPerPage) // Paginate by skipping previous pages
         .limit(reviewsPerPage)
+
+        const result = await Review.aggregate([
+            { $match: {cafeName: cafe} }, // Filter reviews for the specified cafe
+            {
+              $group: {
+                _id: null, // Group all matching reviews
+                averageRating: { $avg: "$rating" }, // Calculate the average rating
+              },
+            },
+          ]);
         
-        return NextResponse.json({success : true, data: reviews})
+        return NextResponse.json({success : true, data: reviews, avg: result[0].averageRating})
     }catch(error){
         return NextResponse.json({success: false, message: "No Data Found"})
     }

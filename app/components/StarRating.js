@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
+import { IoStar, IoStarHalf, IoStarOutline } from 'react-icons/io5';
 
 const StarRating = ({ rating }) => {
   const fullStars = Math.floor(rating);
@@ -10,15 +10,16 @@ const StarRating = ({ rating }) => {
     <div className='flex'>
       {/* Render Full Stars */}
       {Array.from({ length: fullStars }, (_, index) => (
-        <FaStar key={index} color="gold" />
+        <IoStar key={index} color="orange" />
       ))}
       
       {/* Render Half Star */}
-      {halfStar === 1 && <FaStarHalfAlt color="gold" />}
+      {halfStar === 1 && <IoStarHalf color="orange" /> }
       
       {/* Render Empty Stars */}
       {Array.from({ length: emptyStars }, (_, index) => (
-        <FaRegStar key={index} color="gold" />
+        <IoStarOutline key={index} color="orange" />
+    
       ))}
       
       
