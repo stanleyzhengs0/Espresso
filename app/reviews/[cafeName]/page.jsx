@@ -1,5 +1,6 @@
 import ReviewList from "@/app/components/ReviewList"
 import StarRating from "@/app/components/StarRating"
+import NavBar from "@/app/components//NavBar";
 
 
 async function getSummary(cafeNameParam){
@@ -36,41 +37,44 @@ export default async function viewCafe ({params}){
 
 
     return(
-     
-        <div className="flex flex-col h-screen mt-6 font-sans">
-        {/* CAFE INFO SECTION */}
-          <div className="flex gap-4 font-sans p-4" alt="cafe-info-section">
-            {/* Left Side */}
-            <div className="flex flex-col w-1/2 p-2 drop-shadow">
-              <h1 className="text-7xl font-bold mb-4 ">{cleanUrlString}</h1>
-              <p className=""></p>
-              <div className="flex-1 border p-2">
-                {summary.summary}
-              </div>
-              <div className="flex flex-col  gap-3 border p-2 w-full h-full">
-                <div className="bg-brown rounded-md w-8">
-                  {avgRating.toFixed(2)}
+        <>
+          <NavBar/>
+          <div className="flex flex-col h-screen mt-6 pt-12 font-sans">
+            {/* CAFE INFO SECTION */}
+              <div className="flex gap-4 font-sans p-4" alt="cafe-info-section">
+                {/* Left Side */}
+                <div className="flex flex-col w-1/2 p-2 drop-shadow">
+                  <h1 className="text-7xl font-bold mb-4 ">{cleanUrlString}</h1>
+                  <p className=""></p>
+                  <div className="flex-1 border p-2">
+                    {/* {summary.summary} */}
+                  </div>
+                  <div className="flex flex-col  gap-3 border p-2 w-full h-full">
+                    <div className="bg-brown rounded-md w-8">
+                      {avgRating.toFixed(2)}
+                    </div>
+                    <div className="text-6xl">
+                      
+                      <StarRating rating={avgRating} />
+                    </div>
+                  </div>
                 </div>
-                <div className="text-6xl">
-                  
-                  <StarRating rating={avgRating} />
+                {/* Right Side */}
+                <div className="w-1/2 border-2 rounded-3xl p-2">
+                  <img
+                    src = "../ThreeJewelsCafe.jpg"
+                    className="rounded-3xlg"
+                  />
                 </div>
               </div>
-            </div>
-            {/* Right Side */}
-            <div className="w-1/2 border-2 rounded-3xl p-2">
-              <img
-                src = "../ThreeJewelsCafe.jpg"
-                className="rounded-3xlg"
-              />
-            </div>
+          
+              {/* REVIEW SECTION */}
+              <div className="flex justify-center gap-4 bg-olive p-2" alt="cafe-review-section">
+                <ReviewList cafeName={cleanUrlString}/>
+              </div>
           </div>
-      
-          {/* REVIEW SECTION */}
-          <div className="flex justify-center gap-4 bg-olive p-2" alt="cafe-review-section">
-            <ReviewList cafeName={cleanUrlString}/>
-          </div>
-      </div>
+        </>
+        
       
       
     )
