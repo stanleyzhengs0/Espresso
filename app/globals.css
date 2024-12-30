@@ -4,7 +4,7 @@
 
 
 body {
-    @apply bg-oliveBlack text-white font-sans;
+    @apply bg-blueGray text-white font-sans;
     font-family: "Sugar-Magic-Font";
 
 }

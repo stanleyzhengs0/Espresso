@@ -17,7 +17,8 @@ module.exports = {
         oliveBlack: "#292f28",
         olive: "#35392f",
         beige: "#dac5ab",
-        brown: "#4d382e"
+        brown: "#4d382e",
+        blueGray: "#2c3335"
       },
       fontFamily:{
         sans: ['Sugar-Magic-Font']
