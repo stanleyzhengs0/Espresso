@@ -1,8 +1,8 @@
 'use client'
-import FooterNavigation from './components/FooterNavigation'
-import { useEffect, useRef, useState } from "react";
-import { displaySearchContext } from "./components/Context";
+
+import { useState } from "react";
 import { useRouter } from 'next/navigation';
+import SearchBar from './components/SearchBar';
 
 export default function Home() {
 
@@ -28,29 +28,19 @@ export default function Home() {
 
 
   return (
-  <div className="relative grid h-screen grid-rows-[1fr_auto] bg-center">
+  <div className="pt-12 relative grid h-screen grid-rows-[1fr_auto] bg-center">
     <div className="">
       
     
     
-      <div className="relative bg-cover bg-center h-[50vh]">
+      <div className="relative border-2 bg-cover bg-center h-[50vh]">
        
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="bg-coffee bsolute inset-0 bg-black bg-opacity-50">Logo</div>
 
       
         <div className="relative flex justify-center items-center h-full">
          
-          <div className="w-full max-w-lg">
-            <input
-              type="text"
-              placeholder="Search for cafes..."
-              className="w-full px-4 py-2 rounded-md shadow-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            />
-            <div>
-
-            </div>
-            
-          </div>
+          <SearchBar/>
         </div>
       </div>
 
@@ -65,7 +55,7 @@ export default function Home() {
      
     </div>
 
-    <nav className="bg-white bg-opacity-80 p-3 shadow-lg mb-4">
+    <nav className=" bg-opacity-80 p-3 mb-4">
       
       {displaySearch && 
         <>

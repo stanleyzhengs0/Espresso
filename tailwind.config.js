@@ -9,16 +9,16 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'coffee': "url('https://source.unsplash.com/1600x900/?coffee,cafe')",
       },
       colors:{
         oliveBlack: "#292f28",
         olive: "#35392f",
         beige: "#dac5ab",
         brown: "#4d382e",
-        blueGray: "#2c3335"
+        blueGray: "#2c3335",
+        grey: "#8a8781",
+        greyBlue: "#4f746f"
       },
       fontFamily:{
         sans: ['Sugar-Magic-Font']
