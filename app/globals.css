@@ -4,7 +4,7 @@
 
 
 body {
-    @apply bg-blueGray text-white font-sans;
+    @apply bg-gradient-to-r from-lightBlueGray via-midBlueGray to-darkBlueGray text-white font-sans;
     font-family: "Sugar-Magic-Font";
 
 }

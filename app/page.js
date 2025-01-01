@@ -32,21 +32,23 @@ export default function Home() {
     <div className="">
       
     
-    
-      <div className="relative border-2 bg-cover bg-center h-[50vh]">
+      {/* Hero Section */}
+      <div className="relative border-2 bg-custom-bg bg-cover bg-center h-[50vh]">
        
-        <div className="bg-coffee bsolute inset-0 bg-black bg-opacity-50">Logo</div>
+        <div className="flex justify-center h-40">
+          <img src="./homepage.png"/>
+        </div>
 
-      
-        <div className="relative flex justify-center items-center h-full">
-         
+
+        <div className="border-2 relative flex flex-col justify-center items-center h-auto gap-16">
+          <h1 className="text-5xl text-center font-bold font-sans">Discover Review the best Cafes in the City</h1>
           <SearchBar/>
         </div>
       </div>
 
     
       <div className="container mx-auto py-10">
-        <h2 class="text-2xl font-bold mb-4">Discover Cafes</h2>
+        <h2 className="text-2xl font-bold mb-4">Discover Cafes</h2>
        
         
       </div>
