@@ -11,7 +11,6 @@ export default function Home() {
   const [searchInput, setSearchInput] = useState('')
   const [predictions, setPredictions] = useState([])
 
-
   const fetchPlaces = async (inputVal) => {
     let response = await fetch(`http://localhost:3000/api/autocomplete?input=${inputVal}`,{
       method: "GET"

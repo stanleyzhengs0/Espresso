@@ -22,7 +22,6 @@ const StarRating = ({ rating }) => {
     
       ))}
       
-      
     </div>
   );
 };

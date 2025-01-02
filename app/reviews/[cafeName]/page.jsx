@@ -33,9 +33,6 @@ export default async function viewCafe ({params}){
     const avgRating = await getAvgRating(cleanUrlString)
     const thumbnail = `${cafe}.jpg`
 
-    
-
-
     return(
         <>
           <NavBar/>

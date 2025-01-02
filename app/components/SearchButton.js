@@ -31,7 +31,6 @@ const SearchButton = () => {
                             <CiSearch size ={30}/>
                             
                     </button>
-                    
                 )
             }
         </div>

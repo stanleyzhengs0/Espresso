@@ -14,7 +14,6 @@ async function getReviews(cafeNameURL, page){
     }catch(error){
         return console.log("failed to fetch review API")
     }
-    
 }
 
 const ReviewList = ({cafeName, handleDataLoader}) => {
@@ -60,8 +59,6 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
     //     return () => window.removeEventListener('scroll', handleScroll)
     // },[loading])
 
-
-
   return (
     <div className='flex flex-col justify-center gap-4'>
         <h1 className='font-bold text-2xl'>Reviews</h1>
@@ -69,14 +66,12 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
         <div className='grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 '>
             {reviews.map((review, index) =>(
                 
-               
                 <ReviewBox
                     key = {index}
                     reviewerName = {review.reviewerName}
                     rating = {review.rating}
                     description = {review.description}
                 />
-                
             ))}
 
         </div>
@@ -84,11 +79,8 @@ const ReviewList = ({cafeName, handleDataLoader}) => {
         <div className='flex justify-center'>
             <button onClick={handleLoad} className='bg-orange-700 rounded-lg w-20'>
                 Load more
-            </button>
-        
+            </button>      
         </div>
-       
-
     </div>
   )
 }
