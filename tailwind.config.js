@@ -22,7 +22,8 @@ module.exports = {
         greyBlue: "#4f746f",
         lightBlueGray: "#353c3c",
         midBlueGray: "#2c3334",
-        darkBlueGray: "#272e2e"
+        darkBlueGray: "#272e2e",
+        washedGrey: '#6e6b5f',
 
       },
       fontFamily:{

@@ -1,6 +1,5 @@
 import ReviewList from "@/app/components/ReviewList"
 import StarRating from "@/app/components/StarRating"
-import NavBar from "@/app/components//NavBar";
 
 
 async function getSummary(cafeNameParam){
@@ -35,7 +34,6 @@ export default async function viewCafe ({params}){
 
     return(
         <>
-          <NavBar/>
           <div className="flex flex-col h-screen mt-6 pt-12 font-sans">
             {/* CAFE INFO SECTION */}
               <div className="flex gap-4 font-sans p-4" alt="cafe-info-section">

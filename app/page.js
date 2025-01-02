@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import SearchBar from './components/SearchBar';
+import CompanyReviewCard from "./components/CompanyReviewCard";
 
 export default function Home() {
 
@@ -48,57 +49,24 @@ export default function Home() {
     
       <div className="container mx-auto py-10">
         <h2 className="text-2xl font-bold mb-4">Discover Cafes</h2>
-       
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-5" >
+          <CompanyReviewCard/>
+          <CompanyReviewCard/>
+          <CompanyReviewCard/>
+          <CompanyReviewCard/>
+          <CompanyReviewCard/>
+          <CompanyReviewCard/>
+          <CompanyReviewCard/>
+          <CompanyReviewCard/>
+
+        </div>
+        
         
       </div>
 
       
      
     </div>
-
-    <nav className=" bg-opacity-80 p-3 mb-4">
-      
-      {displaySearch && 
-        <>
-          {predictions.map((item, index) =>(
-            <button
-              className='w-full px-4 py-2 border  hover:bg-gray-200 transition duration-200'
-              onClick={() =>{router.push(`./reviews/${item?.structured_formatting.main_text}`)}}
-            >
-              {item?.description}
-            </button>
-          ))}
- 
-       
-       
-          <input
-            className="w-full p-3 border border-gray-300 rounded-full text-oliveBlack"
-            placeholder="Search by Cafe Name..."
-            onChange={(handleChange)}
-            // onKeyDown={handleEnterSearch}
-          />
-        </>
-      }
-
-
-
-          {/* <input
-            className="w-full p-3 border border-gray-300 rounded-full"
-            placeholder="Search by Cafe Name..."
-            onChange={(event)=> {setToSearch(event.target.value)}}
-            onKeyDown={handleEnterSearch}
-          />
-           
-        </>
-      } */}
-
-      {/* Search and Footer Navigation Section */}
-      {/* <displaySearchContext.Provider value = {{displaySearch, setDisplaySearch,setPredictions}}>
-          <FooterNavigation/>
-      </displaySearchContext.Provider> */}
-      
-      
-    </nav>
   </div>
   );
 }
