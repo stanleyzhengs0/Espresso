@@ -3,9 +3,8 @@ import { HiOutlineNewspaper } from "react-icons/hi2";
 
 const NavBar = () => {
   return (
-    <div className = "shadow-lg">
-        <div class="fixed w-full z-20 top-0 start-0">
-            <div class="flex justify-between mx-auto p-2">
+        <div class="fixed w-full top-0 start-0 bg-blueGray bg-opacity-90 shadow-lg rounded-b-lg z-10">
+            <div class="flex justify-between mx-4 p-2">
             
                 <Link href="/" class="self-center text-2xl font-semibold whitespace-nowrap text-white">
                     Beans
@@ -34,7 +33,7 @@ const NavBar = () => {
 
                         <li>
                             <Link 
-                                href="/" 
+                                href="./about" 
                                 className="block px-3 bg-grey text-white rounded-3xl">
                                 About
                             </Link>
@@ -43,8 +42,6 @@ const NavBar = () => {
                 </div>
             </div>
         </div>
-      
-    </div>
   )
 }
 

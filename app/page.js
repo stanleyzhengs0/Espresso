@@ -1,47 +1,29 @@
-'use client'
 
-import { useState } from "react";
-import { useRouter } from 'next/navigation';
 import SearchBar from './components/SearchBar';
 import CompanyReviewCard from "./components/CompanyReviewCard";
 
 export default function Home() {
 
-  const router = useRouter()
-  const [displaySearch, setDisplaySearch] = useState(false)
-  const [searchInput, setSearchInput] = useState('')
-  const [predictions, setPredictions] = useState([])
-
-  const fetchPlaces = async (inputVal) => {
-    let response = await fetch(`http://localhost:3000/api/autocomplete?input=${inputVal}`,{
-      method: "GET"
-    })
-    response = await response.json()
-    console.log(response.data.predictions)
-    setPredictions(response.data.predictions || [])
-  }
-
-  const handleChange = (event) => {
-    setSearchInput(event.target.value)
-    fetchPlaces(event.target.value)
-  }
-
 
   return (
-  <div className="pt-12 relative grid h-screen grid-rows-[1fr_auto] bg-center">
+  <div className="pt-12   ">
     <div className="">
       
     
       {/* Hero Section */}
-      <div className="relative border-2 bg-custom-bg bg-cover bg-center h-[50vh]">
+      <div className="relative border-2 bg-custom-bg h-[50vh] w-screen">
        
-        <div className="flex justify-center h-40">
+        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 h-60 w-60 border-2 z-20">
           <img src="./homepage.png"/>
         </div>
 
 
-        <div className="border-2 relative flex flex-col justify-center items-center h-auto gap-16">
-          <h1 className="text-5xl text-center font-bold font-sans">Discover Review the best Cafes in the City</h1>
+        <div className="border-2 flex flex-col justify-center items-center h-full gap-16">
+          <div className='flex flex-col items-center gap-10 font-sans text-3xl'>
+            <h1 className="text-5xl text-center font-bold font-sans">Discover Review the best Cafes in the City</h1>
+            <p>Cafes, Review</p>
+          </div>
+          
           <SearchBar/>
         </div>
       </div>
