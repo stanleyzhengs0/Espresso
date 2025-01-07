@@ -3,18 +3,18 @@ import ReviewCarousel from "../components/ReviewCarousel "
 
 
 const IMAGES = [
-  "./images/1f.png",
-  "./images/BadReview2.png", 
-  "./images/BadReview3.png",
-  "./images/BadReview4.png",
-  "./images/BadReview5.png",
-  "./images/BadReview6.png"
+  "./images/BR1.png",
+  "./images/BR2.png", 
+  "./images/BR3.png",
+  "./images/BR4.png",
+  "./images/BR5.png",
+  "./images/BR6.png"
 ]
 
 const page = () => {
   return (
-    <div className="flex flex-col items-center font-sans pt-14">
-      <div className="flex flex-col items-center max-w-screen-md gap-4" alt="about">
+    <div className="flex flex-col items-center font-sans pt-14 border-2">
+      <div className="flex flex-col items-center sm:w-1/2  gap-4" alt="about">
         <h1 className="font-bold text-4xl">About Us</h1>
         <p>
           You’re a student, a coffee lover, or work remotely and only care about a tasty 
@@ -28,11 +28,14 @@ const page = () => {
       </div>
       <div>
         Examples
-      </div>
 
-      <div className="pt-10">
+        
+      </div>
+      <div className="w-full sm:w-1/2 pt-10">
         <ReviewCarousel imageUrls = {IMAGES}/>
       </div>
+
+ 
     </div>
   )
 }
