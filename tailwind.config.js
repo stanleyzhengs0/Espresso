@@ -15,7 +15,7 @@ module.exports = {
       colors:{
         oliveBlack: "#292f28",
         olive: "#35392f",
-        beige: "#dac5ab",
+        beige: "#d0c8ba",
         brown: "#4d382e",
         blueGray: "#2c3335",
         grey: "#8a8781",

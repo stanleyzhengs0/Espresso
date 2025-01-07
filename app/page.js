@@ -20,7 +20,7 @@ export default function Home() {
 
         <div className="border-2 flex flex-col justify-center items-center h-full gap-16">
           <div className='flex flex-col items-center gap-10 font-sans text-3xl'>
-            <h1 className="text-5xl text-center font-bold font-sans">Discover Review the best Cafes in the City</h1>
+            <h1 className="text-5xl text-center font-bold font-sans">Discover the best Cafes for in the City</h1>
             <p>Cafes, Review</p>
           </div>
           
