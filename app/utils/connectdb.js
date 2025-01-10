@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Singleton Pattern for MongoDB Connection
 
 let isConnected = false
 

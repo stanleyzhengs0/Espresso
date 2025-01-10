@@ -26,8 +26,6 @@ export async function GET(req,{params}){
     // Extract the query parameters from the request URL
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get('page')); // Default to page 1 if page is not provided
-
-   
     
     
     try{

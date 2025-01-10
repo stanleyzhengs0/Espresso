@@ -28,7 +28,7 @@ const ReviewCarousel  = ({imageUrls}) => {
     <div className='relative group'>
 
       {/* Image content for carousel */}
-      <div className='flex h-full w-full overflow-hidden '>
+      <div className='flex h-full w-full overflow-hidden'>
         {imageUrls.map(url =>(
           <img
               key = {url}

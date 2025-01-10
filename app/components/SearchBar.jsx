@@ -37,7 +37,8 @@ const SearchBar = () => {
               <FaSearch/>
         </button>
       </div>
-      <div className='absolute top-80 bg-grey rounded-md flex flex-col justify-center w-1/2'> 
+      {/* Pop-up for Autocomplete */}
+      <div className='absolute top-96 border-2 bg-grey rounded-md flex flex-col justify-center w-1/2'> 
         {predictions.map((val, index) =>(
           <button
           className='px-3 hover:bg-gray-200 transition duration-200'

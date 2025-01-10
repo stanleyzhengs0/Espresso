@@ -15,17 +15,17 @@ const NavBar = () => {
                     <ul class="flex font-bold gap-4">
                         <li>
                             <Link 
-                                href="./news-articles" 
-                                className="text-white hover:bg-gray-100 hover:bg-transparent" 
+                                href="./AllCafes" 
+                                className="text-white hover:bg-gray-100 hover:bg-opacity-15 p-2 rounded-sm" 
                                 aria-current="page">
-                                News Articles
+                                All Cafes
                             </Link>
                         </li>
                         
                         <li>
                             <Link 
                                 href="./dashboard" 
-                                className="block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 " 
+                                className="text-white hover:bg-gray-100 hover:bg-opacity-15 p-2 rounded-sm " 
                                 aria-current="page">
                                 Dashboard
                             </Link>
@@ -35,7 +35,7 @@ const NavBar = () => {
                             <Link 
                                 href="./about" 
                                 className="block px-3 bg-grey text-white rounded-3xl">
-                                About
+                                About Us
                             </Link>
                         </li>
                     </ul>
