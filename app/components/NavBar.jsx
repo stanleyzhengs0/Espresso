@@ -3,8 +3,8 @@ import { HiOutlineNewspaper } from "react-icons/hi2";
 
 const NavBar = () => {
   return (
-        <div class="fixed w-full top-0 start-0 bg-blueGray bg-opacity-95 shadow-lg rounded-b-lg z-10">
-            <div class="flex justify-between mx-4 p-2">
+        <div className="fixed w-full top-0 start-0 bg-blueGray bg-opacity-95 shadow-lg rounded-b-lg z-10">
+            <div className="flex justify-between mx-4 p-2">
             
                 <Link href="/" class="self-center text-2xl font-semibold whitespace-nowrap text-white">
                     Beans
