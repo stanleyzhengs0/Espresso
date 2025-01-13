@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import ListAllCafeCard from '../components/ListAllCafeCard'
+import ListAllCafeCard from '../components/browse-all/ListAllCafeCard'
 import { useState, useEffect } from 'react'
 
 const page = () => {

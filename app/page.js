@@ -1,5 +1,5 @@
 
-import SearchBar from './components/SearchBar';
+import SearchBar from './components/navigation/SearchBar';
 import CompanyReviewCard from "./components/CompanyReviewCard";
 
 export default function Home() {

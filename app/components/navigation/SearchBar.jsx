@@ -11,7 +11,7 @@ const SearchBar = () => {
   const [predictions, setPredictions] = useState([])
 
   const fetchPlaces = async (inputVal) => {
-    let response = await fetch(`http://localhost:3000/api/autocomplete?input=${inputVal}`,{
+    let response = await fetch(`http://localhost:3000/api/searchbar-autocomplete?input=${inputVal}`,{
       method: "GET"
     })
     response = await response.json()

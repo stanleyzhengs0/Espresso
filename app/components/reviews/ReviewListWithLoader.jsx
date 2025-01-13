@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import ReviewList from './ReviewList'
-import SpinnerEffect from './SpinnerEffect'
+import SpinnerEffect from '../SpinnerEffect'
 
 const ReviewListWithLoader = ({cafeName}) => {
   const [isLoading, setIsLoading] = useState(true)

@@ -1,12 +1,12 @@
-import ReviewCarousel from "../components/ReviewCarousel "
+import ReviewCarousel from "../components/aboutus/IrrelevantReviewCarousel "
 
 const IMAGES = [
-  "./images/BR1.png",
-  "./images/BR2.png", 
-  "./images/BR3.png",
-  "./images/BR4.png",
-  "./images/BR5.png",
-  "./images/BR6.png"
+  "./images/irrelevant-reviews/BR1.png",
+  "./images/irrelevant-reviews/BR2.png", 
+  "./images/irrelevant-reviews/BR3.png",
+  "./images/irrelevant-reviews/BR4.png",
+  "./images/irrelevant-reviews/BR5.png",
+  "./images/irrelevant-reviews/BR6.png"
 ]
 
 const page = () => {

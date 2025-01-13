@@ -1,5 +1,5 @@
-import ReviewList from "@/app/components/ReviewList"
-import StarRating from "@/app/components/StarRating"
+import ReviewList from "@/app/components/reviews/ReviewList"
+import StarRating from "@/app/components/reviews/StarRating"
 
 
 async function getSummary(cafeNameParam){
