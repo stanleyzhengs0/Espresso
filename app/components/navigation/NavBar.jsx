@@ -1,7 +1,13 @@
+import ProfileNav from '@/app/components/navigation/ProfileNav'
 import Link from 'next/link'
 
+import { useAuthContext } from '@/app/lib/auth/authContext'
+import { handleGoogleSignIn } from '@/app/lib/auth/googleSignInServerAction'
 
-const NavBar = () => {
+const NavBar =  () => {
+
+    const session  = useAuthContext()
+   
   return (
         <div className="fixed w-full top-0 start-0 bg-blueGray bg-opacity-95 shadow-lg rounded-b-lg z-10">
             <div className="flex justify-between mx-4 p-2">
@@ -10,7 +16,7 @@ const NavBar = () => {
                     Beans
                 </Link>
                 <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                    <ul className="flex font-bold gap-4">
+                    <ul className="flex items-center font-bold gap-4">
                         <li>
                             <Link 
                                 href="./browse-all" 
@@ -36,6 +42,19 @@ const NavBar = () => {
                                 About Us
                             </Link>
                         </li>
+
+                        <li>
+                      
+                            {session ? (
+                                    <ProfileNav userImage = {session?.user.image} /> 
+                                ): 
+                                (
+                                    <button onClick={handleGoogleSignIn}> not logged in</button>
+                            )}
+                        </li>
+
+
+        
                     </ul>
                 </div>
             </div>
