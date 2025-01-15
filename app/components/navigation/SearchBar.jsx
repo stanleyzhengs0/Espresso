@@ -11,12 +11,18 @@ const SearchBar = () => {
   const [predictions, setPredictions] = useState([])
 
   const fetchPlaces = async (inputVal) => {
-    let response = await fetch(`http://localhost:3000/api/searchbar-autocomplete?input=${inputVal}`,{
-      method: "GET"
-    })
-    response = await response.json()
-    console.log(response.data.predictions)
-    setPredictions(response.data.predictions || [])
+    try{
+      let response = await fetch(`http://localhost:3000/api/searchbar-autocomplete?input=${inputVal}`,{
+        method: "GET"
+      })
+      response = await response.json()
+      console.log(response.data.predictions)
+      setPredictions(response.data.predictions || [])
+
+    }catch(error){
+      console.log(error)
+    }
+    
   }
 
   const handleSearch = (event) =>{

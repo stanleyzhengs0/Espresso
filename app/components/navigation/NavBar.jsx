@@ -1,13 +1,12 @@
 import ProfileNav from '@/app/components/navigation/ProfileNav'
 import Link from 'next/link'
-
-import { useAuthContext } from '@/app/lib/auth/authContext'
 import { handleGoogleSignIn } from '@/app/lib/auth/googleSignInServerAction'
+import { checkIsAuthenticated } from '@/app/lib/auth/checkIsAuthenticated'
 
-const NavBar =  () => {
 
-    const session  = useAuthContext()
-   
+const NavBar = () => {
+
+
   return (
         <div className="fixed w-full top-0 start-0 bg-blueGray bg-opacity-95 shadow-lg rounded-b-lg z-10">
             <div className="flex justify-between mx-4 p-2">
@@ -26,14 +25,14 @@ const NavBar =  () => {
                             </Link>
                         </li>
                         
-                        <li>
+                        {/* <li>
                             <Link 
                                 href="./dashboard" 
                                 className="text-white hover:bg-gray-100 hover:bg-opacity-15 p-2 rounded-sm " 
                                 aria-current="page">
                                 Dashboard
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li>
                             <Link 
@@ -45,8 +44,10 @@ const NavBar =  () => {
 
                         <li>
                       
-                            {session ? (
-                                    <ProfileNav userImage = {session?.user.image} /> 
+                            {checkIsAuthenticated ? (
+                                    // <ProfileNav userImage = {user?.user.image} /> 
+                                    <div>log</div>
+                                    
                                 ): 
                                 (
                                     <button onClick={handleGoogleSignIn}> not logged in</button>

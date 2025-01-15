@@ -4,7 +4,7 @@ export const checkIsAuthenticated = async () =>{
 
     const session = await auth()
 
-    if(auth){
+    if(session){
         return true
     }else{
         return false

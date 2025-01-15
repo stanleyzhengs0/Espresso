@@ -22,7 +22,6 @@ export const {handlers, auth} = NextAuth({
             // Requesting sepcific scopes for Google API's
                 params:{
                     // response_type: "code",
-                    scope: "email profile",
                     access_type: "offline",
                     prompt: "consent"
                 },
@@ -48,7 +47,7 @@ export const {handlers, auth} = NextAuth({
         },
 
         async session({session, token}){
-            // console.log("session callback authconfig", {session, token})
+            console.log("session callback authconfig", {session, token})
             return {
                 ...session, 
                 user: {

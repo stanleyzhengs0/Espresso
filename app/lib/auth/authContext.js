@@ -2,38 +2,45 @@
 import { auth } from "./authConfig";
 import { createContext, useState, useEffect, useContext } from "react";
 
-const AuthContext = createContext(null) 
+const AuthContext = createContext({user:null}) 
 
+// Provider
 export const AuthProvider = ({children}) =>{
-    
-    const [session, setSession] = useState(null)
+    const [user, setUser] = useState(null)
+    const [isloading, setIsloading] = useState(false)
 
     useEffect(()=>{
 
         const fetchSession = async () => {
             try{
-                const sesh = await auth()
-                setSession(sesh)
+                setIsloading(true)
+                const user = await auth()
+                
+                if (user){
+                    setUser(user)
+                }
+                
             }catch(error){
                 console.log(error)
+            }finally{
+                setIsloading(false)
             }
         }
-
         fetchSession()
         
     },[])
 
-    console.log(session)
 
     return(
-        <AuthContext.Provider value={{session, setSession}}>
+        <AuthContext.Provider value={{user}}>
             {children}
         </AuthContext.Provider>
     )
 }
 
+// Consumer/custom hook for error checking undefined
 export const useAuthContext = () => {
     const context = useContext(AuthContext)
-    if(!context)
-  return 
+
+  return context
 };
