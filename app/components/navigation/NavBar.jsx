@@ -1,11 +1,29 @@
+"use client"
 import ProfileNav from '@/app/components/navigation/ProfileNav'
 import Link from 'next/link'
 import { handleGoogleSignIn } from '@/app/lib/auth/googleSignInServerAction'
 import { checkIsAuthenticated } from '@/app/lib/auth/checkIsAuthenticated'
-
+import { useEffect, useState } from 'react'
+import { auth } from '@/app/lib/auth/authConfig'
 
 const NavBar = () => {
 
+    
+    const [user, setUser] = useState()
+
+
+    useEffect(()=>{
+        const fetchSession = async () =>{
+            try{
+                const session = await auth()
+                setUser(session)
+            }catch(error){
+                console.log(error,"Failed to return authentication ")
+            }
+        }
+
+        fetchSession()
+    },[user])
 
   return (
         <div className="fixed w-full top-0 start-0 bg-blueGray bg-opacity-95 shadow-lg rounded-b-lg z-10">
@@ -44,9 +62,9 @@ const NavBar = () => {
 
                         <li>
                       
-                            {checkIsAuthenticated ? (
-                                    // <ProfileNav userImage = {user?.user.image} /> 
-                                    <div>log</div>
+                            {user ? (
+                                    <ProfileNav userImage = {user?.user.image} /> 
+                                    
                                     
                                 ): 
                                 (
