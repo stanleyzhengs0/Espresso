@@ -30,12 +30,13 @@ export const {handlers, auth} = NextAuth({
     ],
    
     callbacks:{
-        async jwt({account, profile, token}){
+        async jwt({account, user,profile, token}){
             if (account){
                 token.accessToken = account.access_token,
                 token.refreshToken = account.refresh_token 
                 token.idToken = account.id_token || null; // Handle missing id_token
                 token.provider = account.provider
+            
             }
 
             if (profile){
