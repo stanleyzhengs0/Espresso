@@ -24,6 +24,7 @@ module.exports = {
         midBlueGray: "#2c3334",
         darkBlueGray: "#272e2e",
         washedGrey: '#6e6b5f',
+        oliveBG: "#212828",
 
       },
       fontFamily:{

@@ -2,6 +2,7 @@
 import React from 'react'
 import ListAllCafeCard from '../components/browse-all/ListAllCafeCard'
 import { useState, useEffect } from 'react'
+import NavBar from '../components/navigation/NavBar'
 
 const page = () => {
   const [allCafes, setAllCafe] = useState([])
@@ -12,6 +13,7 @@ const page = () => {
 
   return (
     <div className='flex flex-col pt-12 gap-3'>
+      <NavBar/>
       <div className="flex justify-between  items-center border-2 px-8 h-12 text-xl" alt= "Header">
         <div className='' alt = "CafeList_Title">
           <h1>

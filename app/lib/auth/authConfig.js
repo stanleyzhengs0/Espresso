@@ -12,7 +12,7 @@ export const {handlers, auth} = NextAuth({
     },
 
     pages:{
-        signIn: "/auth/sign-in"
+        signIn: "./"
     },
     providers:[
         Google({
@@ -24,6 +24,7 @@ export const {handlers, auth} = NextAuth({
                     // response_type: "code",
                     access_type: "offline",
                     prompt: "consent"
+                    
                 },
             },
         }),
@@ -40,7 +41,7 @@ export const {handlers, auth} = NextAuth({
             }
 
             if (profile){
-            token.profile = profile
+                token.profile = profile
             }
 
             return token
@@ -48,7 +49,7 @@ export const {handlers, auth} = NextAuth({
         },
 
         async session({session, token}){
-            console.log("session callback authconfig", {session, token})
+            console.log("session callback authconfig: ", {session, token})
             return {
                 ...session, 
                 user: {

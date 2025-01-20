@@ -1,4 +1,5 @@
 import ReviewCarousel from "../components/aboutus/IrrelevantReviewCarousel "
+import NavBar from "../components/navigation/NavBar"
 
 const IMAGES = [
   "./images/irrelevant-reviews/BR1.png",
@@ -11,7 +12,9 @@ const IMAGES = [
 
 const page = () => {
   return (
+    
     <div className="flex flex-col items-center font-sans pt-14 border-2">
+      <NavBar/>
       {/* About Us Description Container */}
       <div className="flex flex-col items-center sm:w-1/2 gap-4" alt="about">
         <h1 className="font-bold text-4xl">About Us</h1>
