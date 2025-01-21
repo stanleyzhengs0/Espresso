@@ -10,7 +10,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'coffee': "url('https://source.unsplash.com/1600x900/?coffee,cafe')",
-        'custom-bg' : "url('/images/background/bg-coffee.jpg')"
+        // 'custom-bg' : "url('/images/background/bg-coffee.jpg')"
+        'custom-bg' : "url('/images/background/home-bg3.jpg')"
       },
       colors:{
         oliveBlack: "#292f28",

@@ -64,7 +64,7 @@ const page = () => {
                         
                         {/* Seperator Providers to User Info */}
                         <div className="my-12 border-b text-center">
-                            <div className="leading-none px-2 inline-block text-sm text-white tracking-wide font-medium bg-oliveBlack transform translate-y-1/2">
+                            <div className="leading-none px-2 inline-block text-sm text-white tracking-wide font-medium bg-oliveBG transform translate-y-1/2">
                                 Or sign up with e-mail
                             </div>
                         </div>
