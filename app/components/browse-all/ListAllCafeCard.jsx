@@ -1,6 +1,7 @@
 import React from 'react';
+import SeeMoreButton from './SeeMoreButton';
 
-const ListAllCafeCard = () => {
+const ListAllCafeCard = (props) => {
   return (
     <div className="box-border border-2 rounded-md min-h-52 font-sans h-52" alt="Card_Container">
       <div className="flex p-1 border-2 gap-2 h-full items-stretch">
@@ -30,8 +31,18 @@ const ListAllCafeCard = () => {
             </div>
 
             {/* Description Section */}
-            <div className=" flex-grow">
-              Description
+            <div className=" flex h-full justify-between border-2">
+              <div className='border-2'>
+                Description
+              </div>
+              <div className='flex flex-col justify-between border-2 w-36'>
+                <div className='border-2'>
+                  placeholder
+                </div>
+                <div className='border-2'>
+                  <SeeMoreButton/>
+                </div>
+              </div>
             </div>
           </div>
         </div>

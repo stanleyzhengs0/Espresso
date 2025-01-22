@@ -10,7 +10,8 @@ export async function GET(){
             {
                 $group:{
                     _id: "$cafeName",
-                    averageRating: {$avg: "$rating"}
+                    averageRating: {$avg: "$rating"},
+                   
                 }
             }
         ])
