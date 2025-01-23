@@ -1,15 +1,13 @@
-'use client'
-import React from 'react'
+
 import ListAllCafeCard from '../components/browse-all/ListAllCafeCard'
-import { useState, useEffect } from 'react'
+
 import NavBar from '../components/navigation/NavBar'
 
+
+
 const page = () => {
-  const [allCafes, setAllCafe] = useState([])
 
-  useEffect(()=>{
 
-  },[])
 
   return (
     <div className='flex flex-col pt-12 gap-3'>
