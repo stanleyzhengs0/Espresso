@@ -1,12 +1,18 @@
-
+'use client'
+import { useQuery } from '@tanstack/react-query'
 import ListAllCafeCard from '../components/browse-all/ListAllCafeCard'
 
 import NavBar from '../components/navigation/NavBar'
 
 
-
 const page = () => {
 
+  const {data}  = useQuery({
+    queryKey: ["cafes"],
+    queryFn: () => fetch("/api/all-cafes").then((res) => res.json())
+  })
+  
+  console.log(data)
 
 
   return (
