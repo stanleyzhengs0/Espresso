@@ -5,6 +5,7 @@ import SpinnerEffect from '../SpinnerEffect'
 import ListAllCafeCard from './ListAllCafeCard'
 
 const BrowseCafeList = () => {
+    
     const {data, isLoading}  = useQuery({
         queryKey: ["cafes"],
         queryFn: () => fetch("/api/all-cafes").then((res) => res.json())

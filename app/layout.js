@@ -1,7 +1,7 @@
-'use client'
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TanstackProvider from "./utils/TanstackProviders";
+import { AuthProvider } from "./lib/auth/authContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +12,9 @@ export default function RootLayout({ children }) {
       <html lang="en">
           <body className={inter.className}>
           <TanstackProvider>
-            {children}
+            <AuthProvider>
+              {children}
+            </AuthProvider>
           </TanstackProvider>
           </body>
       </html>

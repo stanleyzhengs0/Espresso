@@ -1,36 +1,43 @@
 'use client'
+import { useQuery } from "@tanstack/react-query";
 import { auth } from "./authConfig";
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useContext } from "react";
 
-const AuthContext = createContext() 
+const AuthContext = createContext({}) 
 
 // Provider
 export const AuthProvider = ({children}) =>{
 
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
 
-    useEffect(()=>{
+    // useEffect(()=>{
         
-        const fetchSession = async () => {
-            try{
+    //     const fetchSession = async () => {
+    //         try{
              
-                const user = await auth()
+    //             const user = await auth()
                 
                 
-                setUser(user)
+    //             setUser(user)
                 
 
-            }catch(error){
-                console.log(error)
-            }
-        }
-        fetchSession()
+    //         }catch(error){
+    //             console.log(error)
+    //         }
+    //     }
+    //     fetchSession()
         
-    },[])
+    // },[])
 
+    const {data} = useQuery({
+        queryKey: ['authentication'],
+        queryFn: () => auth()
+    })
+
+    console.log(data)
 
     return(
-        <AuthContext.Provider value={{user}}>
+        <AuthContext.Provider value={{data}}>
             {children}
         </AuthContext.Provider>
     )

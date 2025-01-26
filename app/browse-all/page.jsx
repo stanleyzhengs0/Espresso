@@ -1,5 +1,6 @@
 import BrowseCafeList from '../components/browse-all/BrowseCafeList'
 import NavBar from '../components/navigation/NavBar'
+import SearchBar from '../components/navigation/SearchBar'
 
 
 const page = () => {
@@ -28,7 +29,7 @@ const page = () => {
         {/* <div className='' alt ="dropdown">
          
         </div> */}
-
+      
       </div>
 
       <div className='' alt='filter_options'>

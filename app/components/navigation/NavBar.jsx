@@ -1,10 +1,11 @@
 import SignInButton from "@/app/components/navigation/SignInButton";
+import { useAuthContext } from "@/app/lib/auth/authContext";
 import Link from "next/link";
 
 
 const NavBar = () => {
 
-    // const user = useAuthContext()
+    const {data} = useAuthContext()
 
     // console.log(user)
 
@@ -32,10 +33,18 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
+
+              {data ? (
+                <div>
+                  logged
+                </div>
+              ) : (
+                <Link href="./auth/sign-in" className="block px-3 bg-grey text-white rounded-3xl">
+                  Login
+                </Link>
+              )}
             
-              <Link href="./auth/sign-in" className="block px-3 bg-grey text-white rounded-3xl">
-                Login
-              </Link>
+              
                 
             </li>
           </ul>
