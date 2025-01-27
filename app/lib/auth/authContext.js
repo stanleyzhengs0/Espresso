@@ -46,6 +46,8 @@ export const AuthProvider = ({children}) =>{
 // Consumer/custom hook for error checking undefined
 export const useAuthContext = () => {
     const context = useContext(AuthContext)
-
+    if(!context){
+        throw new Error("auth context hook error") 
+    }
   return context
 };

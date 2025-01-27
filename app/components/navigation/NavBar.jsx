@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const NavBar = () => {
 
-    const {data} = useAuthContext()
+    // const {data} = useAuthContext()
 
     // console.log(user)
 
@@ -34,15 +34,15 @@ const NavBar = () => {
             </li>
             <li>
 
-              {data ? (
+              {/* {data ? (
                 <div>
                   logged
-                </div>
-              ) : (
+                </div> */}
+              {/* // ) : ( */}
                 <Link href="./auth/sign-in" className="block px-3 bg-grey text-white rounded-3xl">
                   Login
                 </Link>
-              )}
+              {/* // )} */}
             
               
                 

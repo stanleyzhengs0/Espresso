@@ -37,11 +37,36 @@ const page = () => {
         <ReviewCarousel imageUrls = {IMAGES}/>
       </div>
 
-      <div>
-        standards
+     
+        <div class="relative bg-gray-900 p-6">
+          {/* <!-- Content Box --> */}
+          <div class="relative z-10 bg-yellow-500 text-black p-6 rounded-lg shadow-lg max-w-md">
+            <h2 class="text-xl font-bold mb-4">Let it surprise you</h2>
+            <p class="mb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sint.
+            </p>
+            <ul class="space-y-2">
+              <li><span class="font-bold">✔</span> Best team</li>
+              <li><span class="font-bold">✔</span> Best quality</li>
+              <li><span class="font-bold">✔</span> Best experience</li>
+            </ul>
+            <p class="mt-4">
+              Duis sagittis turpis in ullamcorper venenatis. Vestibulum...
+            </p>
+          </div>
+
+          {/* <!-- Image Box --> */}
+          <div class="absolute  -left-16 z-0">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Surprised child"
+              class="rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
       </div>
  
-    </div>
+   
   )
 }
 
