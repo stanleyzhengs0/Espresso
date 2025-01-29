@@ -20,7 +20,7 @@ const BrowseCafeList = () => {
   return (
  
 
-    <div className='' alt='Listed_review_section'>
+    <div className='flex flex-col w-full' alt='Listed_review_section'>
         {data?.data.map((item, index) =>(
 
             <ListAllCafeCard key={index} cafeName={item._id} cafeAvgRating={item.averageRating.toFixed(2)}/>

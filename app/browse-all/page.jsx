@@ -1,4 +1,5 @@
 import BrowseCafeList from '../components/browse-all/BrowseCafeList'
+import FilterSection from '../components/browse-all/FilterSection'
 import NavBar from '../components/navigation/NavBar'
 import SearchBar from '../components/navigation/SearchBar'
 
@@ -36,8 +37,15 @@ const page = () => {
 
       </div>
 
-      <div className='' alt='Listed_review_section'>
-          <BrowseCafeList/>
+      <div className='flex flex-row min-w-[1060px] justify-center gap' alt='Listed_review_section'>
+       <div className='flex justify-center'>
+       <FilterSection/>
+       <BrowseCafeList/>
+
+       </div>
+          
+       
+
       </div>
       
     </div>
