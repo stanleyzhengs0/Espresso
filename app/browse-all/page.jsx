@@ -38,11 +38,11 @@ const page = () => {
       </div>
 
       <div className='flex flex-row min-w-[1060px] justify-center gap' alt='Listed_review_section'>
-       <div className='flex justify-center'>
-       <FilterSection/>
-       <BrowseCafeList/>
+        <div className='flex justify-center'>
+          <FilterSection/>
+          <BrowseCafeList/>
 
-       </div>
+        </div>
           
        
 

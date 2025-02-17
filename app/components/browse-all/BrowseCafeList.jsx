@@ -14,13 +14,12 @@ const BrowseCafeList = () => {
     if(isLoading){
         return <SpinnerEffect/>
     }
-
     console.log(data?.data)
 
   return (
  
 
-    <div className='flex flex-col w-full' alt='Listed_review_section'>
+    <div className='flex flex-col w-[calc(100%-360px)]' alt='Listed_review_section'>
         {data?.data.map((item, index) =>(
 
             <ListAllCafeCard key={index} cafeName={item._id} cafeAvgRating={item.averageRating.toFixed(2)}/>
