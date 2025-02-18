@@ -1,11 +1,8 @@
 import BrowseCafeList from '../components/browse-all/BrowseCafeList'
 import FilterSection from '../components/browse-all/FilterSection'
 import NavBar from '../components/navigation/NavBar'
-import SearchBar from '../components/navigation/SearchBar'
-
 
 const page = () => {
-
 
   return (
     <div className='flex flex-col pt-12 gap-3'>
@@ -43,11 +40,7 @@ const page = () => {
           <BrowseCafeList/>
 
         </div>
-          
-       
-
       </div>
-      
     </div>
   )
 }

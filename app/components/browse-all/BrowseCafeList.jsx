@@ -18,7 +18,6 @@ const BrowseCafeList = () => {
 
   return (
  
-
     <div className='flex flex-col w-[calc(100%-360px)]' alt='Listed_review_section'>
         {data?.data.map((item, index) =>(
 
@@ -27,7 +26,6 @@ const BrowseCafeList = () => {
         ))}
     </div>
       
- 
   )
 }
 
